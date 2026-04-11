@@ -1,0 +1,32 @@
+04/08/2026-14:50:38.927493  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.20:8 -> 192.168.1.10:0
+04/08/2026-14:50:38.927630  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:0 -> 192.168.1.20:0
+04/08/2026-15:04:44.737693  [**] [1:1000002:1] NMAP SYN SCAN DETECTADO [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.1.20:40767 -> 192.168.1.10:587
+04/08/2026-15:09:13.631066  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.20:8 -> 192.168.1.10:0
+04/08/2026-15:09:13.631667  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:0 -> 192.168.1.20:0
+04/08/2026-15:09:35.950573  [**] [1:1000002:1] NMAP SYN SCAN DETECTADO [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.1.20:40390 -> 192.168.1.10:23
+04/08/2026-15:18:12.050009  [**] [1:1000002:1] NMAP SYN SCAN DETECTADO [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.1.20:44229 -> 192.168.1.10:256
+04/08/2026-15:18:13.241653  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.20:8 -> 192.168.1.10:9
+04/08/2026-15:18:13.241746  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:0 -> 192.168.1.20:9
+04/08/2026-15:18:13.295644  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:3 -> 192.168.1.20:3
+04/08/2026-15:18:13.966152  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:3 -> 192.168.1.20:3
+04/08/2026-15:19:51.335685  [**] [1:1000002:1] NMAP SYN SCAN DETECTADO [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.1.20:37753 -> 192.168.1.10:256
+04/08/2026-15:19:52.493425  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:3 -> 192.168.1.20:3
+04/08/2026-15:19:53.186453  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:3 -> 192.168.1.20:3
+04/08/2026-15:24:13.062544  [**] [1:1000002:1] NMAP SYN SCAN DETECTADO [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.1.20:63352 -> 192.168.1.10:111
+04/08/2026-15:24:14.377604  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.20:8 -> 192.168.1.10:9
+04/08/2026-15:24:14.377922  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:0 -> 192.168.1.20:9
+04/08/2026-15:24:14.432658  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:3 -> 192.168.1.20:3
+04/08/2026-15:24:15.040105  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:3 -> 192.168.1.20:3
+04/09/2026-15:00:56.143932  [**] [1:1000002:1] NMAP SYN SCAN DETECTADO [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.1.20:47770 -> 192.168.1.10:1720
+04/09/2026-15:02:25.110338  [**] [1:1000002:1] NMAP SYN SCAN DETECTADO [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.1.20:36155 -> 192.168.1.10:135
+04/09/2026-15:03:05.295374  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.20:8 -> 192.168.1.10:0
+04/09/2026-15:03:05.295453  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:0 -> 192.168.1.20:0
+04/09/2026-15:03:18.069219  [**] [1:1000002:1] NMAP SYN SCAN DETECTADO [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.1.20:41781 -> 192.168.1.10:21
+04/11/2026-11:28:43.223812  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.20:8 -> 192.168.1.10:0
+04/11/2026-11:28:43.224526  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:0 -> 192.168.1.20:0
+04/11/2026-11:28:43.223830  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.20:8 -> 192.168.1.10:0
+04/11/2026-11:28:43.224569  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:0 -> 192.168.1.20:0
+04/11/2026-11:34:07.221733  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.20:8 -> 192.168.1.10:0
+04/11/2026-11:34:07.221880  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:0 -> 192.168.1.20:0
+04/11/2026-11:34:07.221728  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.20:8 -> 192.168.1.10:0
+04/11/2026-11:34:07.221861  [**] [1:1000001:1] PING DETECTADO [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.1.10:0 -> 192.168.1.20:0
