@@ -1,34 +1,33 @@
-# 🛡️ Projeto Suricata - IDS/IPS
+# 🛡️ Suricata Lab - Detecção de Intrusão (IDS)
 
 ## 📌 Sobre o Projeto
 
-Este projeto tem como objetivo implementar e testar o **Suricata** como sistema de detecção e prevenção de intrusões (IDS/IPS), permitindo a análise de tráfego de rede e identificação de atividades suspeitas.
+Este projeto demonstra a implementação prática do **Suricata** como sistema de detecção de intrusão (IDS), com foco em monitoramento de tráfego de rede e identificação de atividades suspeitas através de regras customizadas.
 
 ---
 
-## 🧠 O que é o Suricata?
+## 🧠 Objetivo
 
-O Suricata é uma ferramenta open-source de segurança de rede que atua como:
-
-* 🔍 IDS (Intrusion Detection System)
-* 🚫 IPS (Intrusion Prevention System)
-* 📊 Analisador de tráfego em tempo real
-
----
-
-## 🎯 Objetivo
-
-* Monitorar tráfego de rede
-* Detectar atividades maliciosas
+* Implementar um IDS funcional utilizando Suricata
 * Criar e testar regras personalizadas
-* Gerar alertas de segurança
+* Monitorar tráfego de rede em tempo real
+* Detectar eventos como ping (ICMP) e atividades suspeitas
 
 ---
 
-## 🏗️ Estrutura do Projeto
+## 🏗️ Arquitetura do Lab
 
-```
-projeto-suricata/
+* 💻 Máquina virtual (VirtualBox)
+* 🐧 Sistema Linux
+* 🌐 Interface de rede: `enp0s3`
+* 🔐 Monitoramento em tempo real com Suricata
+
+---
+
+## 📁 Estrutura do Projeto
+
+```bash
+suricata-lab/
 │
 ├── config/
 │   └── suricata.yaml
@@ -36,11 +35,6 @@ projeto-suricata/
 ├── rules/
 │   └── local.rules
 │
-├── logs/              # não versionado
-│
-├── scripts/           # opcional
-│
-├── .gitignore
 └── README.md
 ```
 
@@ -48,10 +42,9 @@ projeto-suricata/
 
 ## ⚙️ Tecnologias Utilizadas
 
-* Suricata
+* Suricata (IDS/IPS)
 * Linux
 * Git & GitHub
-* Regras customizadas IDS/IPS
 
 ---
 
@@ -59,89 +52,93 @@ projeto-suricata/
 
 ### 1. Clonar o repositório
 
-```
-git clone git@github.com:SEU_USUARIO/projeto-suricata.git
-cd projeto-suricata
+```bash
+git clone https://github.com/duanyrocker/suricata-lab.git
+cd suricata-lab
 ```
 
 ---
 
 ### 2. Executar o Suricata
 
-```
+```bash
 sudo suricata -c config/suricata.yaml -i enp0s3
 ```
 
-> ⚠️ Substitua `enp0s3` pela sua interface de rede
+> ⚠️ Ajuste a interface de rede conforme seu ambiente
 
 ---
 
 ## 🧪 Testes Realizados
 
-### ✔️ Teste de Ping (ICMP)
+### ✔️ Detecção de Ping (ICMP)
 
-* Geração de tráfego ICMP
-* Detecção via regra personalizada
+Foi criada uma regra personalizada para detectar tráfego ICMP:
 
-### ✔️ Análise de tráfego
+```bash
+alert icmp any any -> any any (msg:"Ping detectado"; sid:1000001; rev:1;)
+```
 
-* Monitoramento em tempo real
-* Geração de alertas
+### 🔎 Simulação
+
+Em outro terminal:
+
+```bash
+ping 8.8.8.8
+```
 
 ---
 
-## 📊 Logs e Alertas
+## 📊 Resultados
 
-Os alertas são gerados em arquivos como:
+O Suricata gerou alertas com sucesso:
+
+```bash
+[**] [1:1000001:1] Ping detectado [**]
+```
+
+Os logs são armazenados em:
 
 * `fast.log`
 * `eve.json`
 * `stats.log`
 
-> ⚠️ Esses arquivos não são versionados no Git
-
----
-
-## 🧩 Exemplo de Regra
-
-```
-alert icmp any any -> any any (msg:"Ping detectado"; sid:1000001;)
-```
-
----
-
-## 🌐 Ambiente
-
-* Máquina Virtual (VirtualBox)
-* Sistema Linux
-* Rede NAT / Bridge
+> ⚠️ Logs não são versionados no repositório
 
 ---
 
 ## 🔐 Boas Práticas Aplicadas
 
-* Uso de `.gitignore` para evitar logs
-* Organização modular do projeto
-* Configuração separada (`config/`)
-* Regras customizadas
+* Uso de `.gitignore` para evitar dados sensíveis
+* Organização modular (`config/`, `rules/`)
+* Separação de configuração e regras
+* Testes práticos de detecção
 
 ---
 
-## 🚀 Melhorias Futuras
+## 🚀 Possíveis Melhorias
 
-* Integração com ELK Stack
+* Integração com ELK Stack (SIEM)
 * Dashboard com Grafana
-* Automação com scripts
-* Deploy com Docker
+* Execução via Docker
+* Implementação como IPS (modo inline)
 
 ---
 
 ## 👩‍💻 Autora
 
-Projeto desenvolvido por **Duany Rocker**
+**Duany Rocker**
+Analista de Segurança Júnior em formação
 
 ---
 
-## ⭐ Contribuição
+## ⭐ Considerações
 
-Sinta-se à vontade para contribuir ou sugerir melhorias!
+Este projeto demonstra habilidades práticas em:
+
+* Segurança de redes
+* Análise de tráfego
+* Detecção de ameaças
+* Configuração de ferramentas de segurança
+
+---
