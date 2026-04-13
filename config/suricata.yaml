@@ -2191,7 +2191,7 @@ napatech:
 ## Configure Suricata to load Suricata-Update managed rules.
 ##
 
-default-rule-path: /var/lib/suricata/rules
+default-rule-path: ./rules
 
 rule-files:
   - local.rules
