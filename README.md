@@ -1,144 +1,144 @@
-# 🛡️ Suricata Lab - Detecção de Intrusão (IDS)
+---
 
-## 📌 Sobre o Projeto
+# 🔐 Monitoramento de Segurança com Suricata + Wazuh
 
-Este projeto demonstra a implementação prática do **Suricata** como sistema de detecção de intrusão (IDS), com foco em monitoramento de tráfego de rede e identificação de atividades suspeitas através de regras customizadas.
+Projeto prático de **detecção de ameaças em rede**, utilizando um IDS integrado a um SIEM para coleta, análise e visualização de eventos.
 
 ---
 
-## 🧠 Objetivo
+## 🎯 Objetivo
 
-* Implementar um IDS funcional utilizando Suricata
-* Criar e testar regras personalizadas
-* Monitorar tráfego de rede em tempo real
-* Detectar eventos como ping (ICMP) e atividades suspeitas
+Implementar um ambiente funcional de monitoramento capaz de:
+
+* Detectar atividades suspeitas em rede
+* Correlacionar eventos em um SIEM
+* Simular cenários de ataque
+* Gerar alertas para análise
 
 ---
 
-## 🏗️ Arquitetura do Lab
+## 🧠 Tecnologias Utilizadas
 
-* 💻 Máquina virtual (VirtualBox)
-* 🐧 Sistema Linux
-* 🌐 Interface de rede: `enp0s3`
-* 🔐 Monitoramento em tempo real com Suricata
+* Suricata — detecção de tráfego e ameaças
+* Wazuh — ingestão e análise de logs
+* Nmap — simulação de varredura de portas
+* Linux (Debian)
+
+---
+
+## 🏗️ Arquitetura
+
+```text
+Tráfego de rede → Suricata → eve.json → Wazuh → Dashboard
+```
 
 ---
 
 ## 📁 Estrutura do Projeto
 
-```bash
-suricata-lab/
-│
+```text
+suricata-wazuh/
 ├── config/
-│   └── suricata.yaml
-│
+│   ├── suricata.yaml
+│   └── ossec.conf
 ├── rules/
 │   └── local.rules
-│
+├── logs/ (ignorado no versionamento)
 └── README.md
 ```
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+## ⚙️ Configuração do Ambiente
 
-* Suricata (IDS/IPS)
-* Linux
-* Git & GitHub
+* Configuração do Suricata para monitoramento da interface de rede
+* Integração do arquivo `eve.json` com o Wazuh
+* Ajustes no parsing de logs JSON
+* Criação de regras customizadas para detecção de eventos
 
 ---
 
-## 🚀 Como Executar
+## 🔍 Regras Implementadas
 
-### 1. Clonar o repositório
+Regras customizadas utilizadas no projeto:
 
-```bash
-git clone https://github.com/duanyrocker/suricata-lab.git
-cd suricata-lab
+```text
+alert icmp any any -> any any (msg:"ICMP PING DETECTADO"; sid:1000001; rev:1;)
+alert tcp any any -> any any (msg:"TCP SYN SCAN DETECTADO"; flags:S; threshold:type threshold, track by_src, count 5, seconds 10; sid:1000002; rev:1;)
+alert http any any -> any any (msg:"ACESSO HTTP DETECTADO"; sid:1000003; rev:1;)
+alert dns any any -> any any (msg:"CONSULTA DNS DETECTADA"; sid:1000004; rev:1;)
 ```
 
 ---
 
-### 2. Executar o Suricata
+## 🚨 Cenários de Ataque Simulados
+
+### 🔎 Reconhecimento de rede (SYN Scan)
 
 ```bash
-sudo suricata -c config/suricata.yaml -i enp0s3
+nmap -sS -p- <IP>
 ```
-
-> ⚠️ Ajuste a interface de rede conforme seu ambiente
 
 ---
 
-## 🧪 Testes Realizados
-
-### ✔️ Detecção de Ping (ICMP)
-
-Foi criada uma regra personalizada para detectar tráfego ICMP:
+### 🌐 Consultas DNS
 
 ```bash
-alert icmp any any -> any any (msg:"Ping detectado"; sid:1000001; rev:1;)
+dig google.com
 ```
 
-### 🔎 Simulação
+---
 
-Em outro terminal:
+### 🔐 Tentativas de conexão
 
 ```bash
-ping 8.8.8.8
+ssh <IP>
 ```
 
 ---
 
 ## 📊 Resultados
 
-O Suricata gerou alertas com sucesso:
-
-```bash
-[**] [1:1000001:1] Ping detectado [**]
-```
-
-Os logs são armazenados em:
-
-* `fast.log`
-* `eve.json`
-* `stats.log`
-
-> ⚠️ Logs não são versionados no repositório
+* Detecção de tráfego ICMP (ping)
+* Identificação de consultas DNS
+* Detecção de varredura SYN (Nmap)
+* Monitoramento de tráfego HTTP
+* Geração de alertas no Wazuh
+* Visualização de eventos no dashboard
 
 ---
 
-## 🔐 Boas Práticas Aplicadas
+## 🧠 Desafios Enfrentados
 
-* Uso de `.gitignore` para evitar dados sensíveis
-* Organização modular (`config/`, `rules/`)
-* Separação de configuração e regras
-* Testes práticos de detecção
-
----
-
-## 🚀 Possíveis Melhorias
-
-* Integração com ELK Stack (SIEM)
-* Dashboard com Grafana
-* Execução via Docker
-* Implementação como IPS (modo inline)
+* Configuração correta da interface de rede no Suricata
+* Problemas de parsing JSON no Wazuh
+* Ajuste de regras para diferentes protocolos
+* Delay na ingestão de eventos no SIEM
+* Integração entre IDS e SIEM
 
 ---
 
-## 👩‍💻 Autora
+## 🚀 Aprendizados
 
-**Duany Rocker**
-Analista de Segurança Júnior em formação
+* Funcionamento prático de um IDS integrado a um SIEM
+* Criação e validação de regras de detecção
+* Simulação de ataques de rede
+* Troubleshooting em ambiente de segurança
+* Análise de eventos em tempo quase real
 
 ---
 
-## ⭐ Considerações
+## 🔥 Próximos Passos
 
-Este projeto demonstra habilidades práticas em:
+* Simulação de brute force SSH
+* Integração com MITRE ATT&CK
+* Criação de dashboards personalizados
+* Automação de alertas
 
-* Segurança de redes
-* Análise de tráfego
-* Detecção de ameaças
-* Configuração de ferramentas de segurança
+---
+
+## 💼 Sobre o Projeto
+
+Projeto desenvolvido com foco em práticas de **Security Operations Center (SOC)**, simulando cenários de ataque e análise de eventos em um ambiente controlado.
 
 ---
